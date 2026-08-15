@@ -1,20 +1,63 @@
 {
-	"geode": "5.9.0",
-	"gd": {
-		"win": "2.2081",
-		"android": "2.2081",
-		"mac": "2.2081",
-		"ios": "2.2081"
-	},
-	"id": "dogwhilenew.screencrack",
-	"name": "Screen Crack",
-	"version": "v1.0.0",
-	"developer": "Dogwhilenew",
-	"description": "If you die, 1/32 of your screen becomes BLACK",
-	"dependencies": {
-		"geode.node-ids": ">=v1.23.3"
-	},
-	"tags": [
-		"joke"
-	]
+    "geode": "5.9.0",
+    "gd": {
+        "win": "2.2081",
+        "android": "2.2081",
+        "mac": "2.2081",
+        "ios": "2.2081"
+    },
+    "id": "dogwhilenew.screencrack",
+    "name": "Screen Crack",
+    "version": "v1.0.1",
+    "developer": "Dogwhilenew",
+    "description": "Every death blacks out part of your screen",
+    "tags": ["joke", "challenge", "visual"],
+    "settings": {
+		"screen-break": {
+    		"name": "Screen Break",
+    		"description": "Black out sections of the screen on death.",
+    		"type": "bool",
+    		"default": true
+		},
+        "grid-cols": {
+            "name": "Grid Size",
+            "description": "How many pieces your screen splits into.\n4 cols x 2 rows = 1/8 gone per death\n8 cols x 4 rows = 1/32 gone per death (default)\n16 cols x 8 rows = 1/128 gone per death",
+            "type": "int",
+            "default": 8,
+            "min": 4,
+            "max": 16,
+            "one-of": [4, 8, 16]
+        },
+        "fps-penalty": {
+            "name": "FPS Penalty",
+            "description": "Reduce FPS cap on each death",
+            "type": "bool",
+            "default": false
+        },
+        "fps-drop": {
+            "name": "FPS Drop Per Death",
+            "description": "How many FPS to subtract each death (lowest 10 fps)",
+            "type": "int",
+            "default": 5,
+            "min": 1,
+            "max": 30
+        },
+        "gravity-penalty": {
+            "name": "Gravity Penalty",
+            "description": "Reduce gravity on each death",
+            "type": "bool",
+            "default": false
+        },
+        "gravity-drop": {
+            "name": "Gravity Drop Per Death",
+            "description": "How much gravity decreases per death",
+            "type": "float",
+            "default": 0.05,
+            "min": 0.01,
+            "max": 0.5
+        }
+    },
+    "dependencies": {
+        "geode.node-ids": ">=v1.23.3"
+    }
 }
