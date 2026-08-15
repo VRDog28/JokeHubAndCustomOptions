@@ -13,5 +13,8 @@
 	"description": "If you die, 1/32 of your screen becomes BLACK",
 	"dependencies": {
 		"geode.node-ids": ">=v1.23.3"
-	}
+	},
+	"tags": [
+		"joke"
+	]
 }
