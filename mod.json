@@ -61,6 +61,12 @@
                 "cube.png"
             ]
         },
+        "randomize-icon": {
+            "name": "Randomize Icon",
+            "description": "Randomize your icon",
+            "type": "bool",
+            "default": false
+        },
         "screen-break": {
             "name": "Screen Break",
             "description": "Black out sections of the screen on death.",

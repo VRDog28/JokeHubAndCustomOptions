@@ -4,7 +4,7 @@
 #include <algorithm>
 
 using namespace geode::prelude;
-// Makes the play button Runaway
+
 class $modify(RunawayMenuLayer, MenuLayer) {
     struct Fields {
         CCMenuItemSpriteExtra* playBtn = nullptr;

@@ -16,11 +16,11 @@ class $modify(CustomIconPlayer, PlayerObject) {
 
         bool enabled = Mod::get()->getSettingValue<bool>("enable-custom-icon");
         std::string iconFile = Mod::get()->getSettingValue<std::string>("custom-icon-choice");
-        // checks if the player is a cube
+
         bool isCube = (!m_isShip && !m_isBall && !m_isBird && !m_isDart && !m_isRobot && !m_isSpider && !m_isSwing);
-        // if setting is NOT enabled OR the player is NOT a cube
+
         if (!enabled || !isCube) {
-            // removes custom sprite
+
             if (m_fields->customSprite) {
                 m_fields->customSprite->setVisible(false);
             }
@@ -29,7 +29,7 @@ class $modify(CustomIconPlayer, PlayerObject) {
             if (m_iconGlow) m_iconGlow->setOpacity(255);
             return true;
         }
-        // continue if player is cube and setting is enabled
+  
 
         if (m_iconSprite) m_iconSprite->setOpacity(0);
         if (m_iconSpriteSecondary) m_iconSpriteSecondary->setOpacity(0);
@@ -80,7 +80,7 @@ class $modify(CustomIconPlayer, PlayerObject) {
 
         bool enabled = Mod::get()->getSettingValue<bool>("enable-custom-icon");
         std::string iconFile = Mod::get()->getSettingValue<std::string>("custom-icon-choice");
-        // basically the same but for every update (so when something changes it updates)
+
         bool isCube = (!m_isShip && !m_isBall && !m_isBird && !m_isDart && !m_isRobot && !m_isSpider && !m_isSwing);
 
         if (!enabled || !isCube) {

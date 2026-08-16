@@ -2,6 +2,10 @@
 #include <Geode/modify/FMODAudioEngine.hpp>
 #include <fmod.hpp>
 
+// Hopefully this gets approved
+// After getting rejected 3 times
+
+
 using namespace geode::prelude;
 
 class $modify(CustomDeathSoundEngine, FMODAudioEngine) {
@@ -10,11 +14,11 @@ class $modify(CustomDeathSoundEngine, FMODAudioEngine) {
     };
 
     int playEffect(gd::string path, float speed, float p2, float volume) {
-        // See if settings enabled
+
         bool enabled = Mod::get()->getSettingValue<bool>("enable-custom-death-sound");
 
         if (enabled && std::string(path.c_str()).find("explode_11.ogg") != std::string::npos) {\
-            //gest the choice and add prefix and resolves the path
+
             std::string soundChoice = Mod::get()->getSettingValue<std::string>("custom-death-sound-choice");
             std::string prefixname = fmt::format("{}/{}", Mod::get()->getID(), soundChoice);
             std::string resolvPath = CCFileUtils::sharedFileUtils()->fullPathForFilename(prefixname.c_str(), false);
@@ -25,7 +29,6 @@ class $modify(CustomDeathSoundEngine, FMODAudioEngine) {
 
                     if (m_system->createSound(resolvPath.c_str(), FMOD_DEFAULT, nullptr, &sound) != FMOD_OK || !sound) log::warn("debug1 (fail create death sound): '{}'", resolvPath); // debug1 remove later*
                     else {
-                        // plays it on its own channel (to avoid cutting of sound)
                         FMOD::Channel* channel = nullptr;
                         m_system->playSound(sound, nullptr, false, &channel);
                         if (channel) {
@@ -45,7 +48,7 @@ class $modify(CustomDeathSoundEngine, FMODAudioEngine) {
         FMODAudioEngine::update(dt);
 
         auto& pending = m_fields->pendcustomsounds;
-        
+
         for (auto it = pending.begin(); it != pending.end();) {
             bool playing = false;
             if (it->second) it->second->isPlaying(&playing);
@@ -58,4 +61,5 @@ class $modify(CustomDeathSoundEngine, FMODAudioEngine) {
             }
         }
     }
+
 };
