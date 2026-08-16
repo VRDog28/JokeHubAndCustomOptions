@@ -6,22 +6,70 @@
         "mac": "2.2081",
         "ios": "2.2081"
     },
-    "id": "dogwhilenew.screencrack",
-    "name": "Screen Crack",
-    "version": "v1.0.1",
+    "id": "dogwhilenew.jokehub",
+    "name": "Joke Hub & Custom Options",
+    "version": "v1.0.2",
     "developer": "Dogwhilenew",
-    "description": "Every death blacks out part of your screen",
-    "tags": ["joke", "challenge", "visual"],
+    "description": "A collection of customizable settings & Jokes!",
+    "tags": ["joke", "customization"],
+    "resources": {
+        "sprites": [
+            "resources/dog.png",
+            "resources/cat.png",
+            "resources/cube.png"
+        ],
+        "files": [
+            "resources/kaboom.ogg",
+            "resources/vine_boom.ogg",
+            "resources/musical.ogg",
+            "resources/musical_2.ogg"
+        ]
+    },
     "settings": {
-		"screen-break": {
-    		"name": "Screen Break",
-    		"description": "Black out sections of the screen on death.",
-    		"type": "bool",
-    		"default": true
-		},
+        "enable-custom-death-sound": {
+            "name": "Enable Custom Death Sound",
+            "description": "Replaces the death sound with one of these below",
+            "type": "bool",
+            "default": false
+        },
+        "custom-death-sound-choice": {
+            "name": "Death Sound Effect",
+            "description": "Choose which sound plays when you die",
+            "type": "string",
+            "default": "kaboom.ogg",
+            "one-of": [
+                "kaboom.ogg",
+                "vine_boom.ogg",
+                "musical.ogg",
+                "musical_2.ogg"
+            ]
+        },
+        "enable-custom-icon": {
+            "name": "Enable Custom Icon",
+            "description": "Replaces your icon with one of these below",
+            "type": "bool",
+            "default": false
+        },
+        "custom-icon-choice": {
+            "name": "Custom Icon Image",
+            "description": "Choose which icon image to use.",
+            "type": "string",
+            "default": "dog.png",
+            "one-of": [
+                "dog.png",
+                "cat.png",
+                "cube.png"
+            ]
+        },
+        "screen-break": {
+            "name": "Screen Break",
+            "description": "Black out sections of the screen on death.",
+            "type": "bool",
+            "default": true
+        },
         "grid-cols": {
             "name": "Grid Size",
-            "description": "How many pieces your screen splits into.\n4 cols x 2 rows = 1/8 gone per death\n8 cols x 4 rows = 1/32 gone per death (default)\n16 cols x 8 rows = 1/128 gone per death",
+            "description": "How many pieces your screen splits into.",
             "type": "int",
             "default": 8,
             "min": 4,
@@ -30,13 +78,13 @@
         },
         "fps-penalty": {
             "name": "FPS Penalty",
-            "description": "Reduce FPS cap on each death",
+            "description": "Reduce FPS cap on each death.",
             "type": "bool",
             "default": false
         },
         "fps-drop": {
             "name": "FPS Drop Per Death",
-            "description": "How many FPS to subtract each death (lowest 10 fps)",
+            "description": "How many FPS to subtract each death.",
             "type": "int",
             "default": 5,
             "min": 1,
@@ -44,17 +92,23 @@
         },
         "gravity-penalty": {
             "name": "Gravity Penalty",
-            "description": "Reduce gravity on each death",
+            "description": "Reduce gravity on each death.",
             "type": "bool",
             "default": false
         },
         "gravity-drop": {
             "name": "Gravity Drop Per Death",
-            "description": "How much gravity decreases per death",
+            "description": "How much gravity decreases per death.",
             "type": "float",
             "default": 0.05,
             "min": 0.01,
             "max": 0.5
+        },
+        "enable-runaway-play": {
+            "name": "Play button is scared of you",
+            "description": "The play button is scared",
+            "type": "bool",
+            "default": false
         }
     },
     "dependencies": {
